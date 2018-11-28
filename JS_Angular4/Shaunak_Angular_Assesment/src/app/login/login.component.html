@@ -1,0 +1,43 @@
+<style>
+    .footer{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: blue;
+        color: white;
+        text-align: center;
+     }
+    </style>
+    <body>
+        <br>
+        <br>
+        <br>
+    <div class="container">
+       <form #frm="ngForm" align="center">
+          <div class="form-group">
+            <label for="name">User Name:</label>
+            <input type="text" name="itemname" class="form-control-sm" pattern="[a-zA-Z][a-zA-Z ]+"
+              #NameControl="ngModel" [(ngModel)]="varbind" required>
+            <div *ngIf="NameControl?.touched && NameControl?.invalid" class="alert alert-danger">
+              <div *ngIf="NameControl?.errors?.required">User Name is Mandatory Field</div>
+              <div *ngIf="NameControl.errors?.pattern">Pls. Enter Valid User Name</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Password:</label>
+            <input type="password" name="itemquantity" maxlength="8" class="form-control-sm" #QuantityControl="ngModel"
+              ngModel required>
+            <div *ngIf="QuantityControl?.touched && QuantityControl?.invalid" class="alert alert-danger">
+              <div *ngIf="QuantityControl?.errors?.required">Password is a Mandatory Field</div>
+              <div *ngIf="QuantityControl.errors?.pattern">Pls. Enter Valid password</div>
+            </div>
+          </div>
+          <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Submit</button>
+          <p><a>Create New Account</a></p>
+          </form>
+    </div>
+    <div class="footer">
+        <h3>Happy Angular Learning</h3>
+      </div>
+    </body>

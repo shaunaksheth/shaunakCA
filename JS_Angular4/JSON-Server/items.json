@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "itemname": "phone",
+      "itemquantity": 10
+    },
+    {
+      "itemname": "Laptop",
+      "itemquantity": "20",
+      "id": 3
+    },
+    {
+      "itemname": "Viral",
+      "itemquantity": "999",
+      "id": 4
+    },
+    {
+      "itemname": "Shaunak",
+      "itemquantity": "777",
+      "id": 5
+    }
+  ]
+}

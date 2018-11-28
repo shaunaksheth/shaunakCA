@@ -1,0 +1,51 @@
+<style>
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    text-align: center;
+ }
+</style>
+<body>
+<div class="container">
+  <!-- <div class="jumbotron"> -->
+    <form #frm="ngForm" (ngSubmit)="addItems(frm)" align="left" *ngIf="!toggleForm">
+      <div class="form-group">
+        <h2 class="panel-heading">
+          Add Item
+        </h2>
+        <label for="name">Item Name:</label>
+        <input type="text" name="itemname" class="form-control-sm" pattern="[a-zA-Z][a-zA-Z ]+"
+          #NameControl="ngModel" [(ngModel)]="varbind" required>
+        <div *ngIf="NameControl?.touched && NameControl?.invalid" class="alert alert-danger">
+          <div *ngIf="NameControl?.errors?.required">Item Name is Mandatory Field</div>
+          <div *ngIf="NameControl.errors?.pattern">Pls. Enter Valid Item Name</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity  :</label>
+        <input type="text" name="itemquantity" maxlength="3" class="form-control-sm" pattern="[0-9]*" #QuantityControl="ngModel"
+          ngModel required>
+        <div *ngIf="QuantityControl?.touched && QuantityControl?.invalid" class="alert alert-danger">
+          <div *ngIf="QuantityControl?.errors?.required">Quantity is a Mandatory Field</div>
+          <div *ngIf="QuantityControl.errors?.pattern">Pls. Enter Valid Quantity Number</div>
+        </div>
+      </div>
+      <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Add
+        Item</button>
+        <br>
+        <br>
+        <h2 align="left" class="panel-heading">
+        </h2>
+        
+    </form>
+      <!-- </div> -->
+</div>
+<div class="footer">
+    <h3>Happy Angular Learning</h3>
+  </div>
+
+</body>
